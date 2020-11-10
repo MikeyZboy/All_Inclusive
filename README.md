@@ -8,7 +8,7 @@ Links: [Github](https://github.com/MikeyZboy) | [Linkedin](https://www.linkedin.
 ***
 ### Description ###
 
-All Inclusive is a travel site for friends, family, and vagabonds who enjoy expectations.
+All Inclusive is a travel site for friends, family, and vagabonds who want to set expectations.
 
 Find places, activities, and who will be there so you can just relax and enjoy.
 
