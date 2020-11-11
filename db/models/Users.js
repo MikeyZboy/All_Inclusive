@@ -8,7 +8,9 @@ module.exports = new Schema(
         },
         email: {
             type: String,
-            required: true
+            required: true,
+            unique: true,
+            index: true
         },
         password_digest: {
             type: String,
