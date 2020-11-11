@@ -14,7 +14,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', (req, res) => res.send({msg: 'SeRvEr WoRkInG!'}))
-//app.use('/api', AppRouter)
+//confirmed connection 11.11;13:42:00
+// app.use('/api', AppRouter)
 
 app.listen(PORT, async () => {
     try {
