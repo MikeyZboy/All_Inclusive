@@ -25,6 +25,10 @@ module.exports = new Schema(
         friends: [{
             type: Schema.Types.ObjectId,
             ref: 'users'
+        }],
+        reviews: [{
+            type: Schema.Types.ObjectId,
+            ref: 'reviews'
         }]
     },
     {timestamps: true}

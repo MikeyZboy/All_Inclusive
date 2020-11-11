@@ -3,18 +3,17 @@ const { Schema } = require('mongoose')
 module.exports = new Schema(
     {
         name: {
-            type: String,
-            required: true
+            type: String
         },
-        popularity_string: {
-            type: String,
+        description: {
+            type: String
+        },
+        popularity_rating: {
+            type: Number,
+            default: 0,
             required: true
         },
         image_url: {
-            type: String,
-            required: true
-        },
-        description: {
             type: String,
             required: true
         },
@@ -28,7 +27,7 @@ module.exports = new Schema(
         }],
         reviews: [{
             type: Schema.Types.ObjectId,
-            ref: 'users'
+            ref: 'reviews'
         }]
     },
     {timestamps: true}

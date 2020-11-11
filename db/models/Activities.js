@@ -10,7 +10,12 @@ module.exports = new Schema(
             type: String,
             required: true
         },
-        day: {
+        popularity_rating: {
+            type: Number,
+            default: 0,
+            required: true
+        },
+        date: {
             type: Date,
             required: true
         },
@@ -25,6 +30,10 @@ module.exports = new Schema(
         friends: [{
             type: Schema.Types.ObjectId,
             ref: 'users'
+        }],
+        reviews: [{
+            type: Schema.Types.ObjectId,
+            ref: 'reviews'
         }]
     },
     {timestamps: true}

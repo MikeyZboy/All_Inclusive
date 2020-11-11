@@ -10,22 +10,24 @@ module.exports = new Schema(
             type: String,
             required: true
         },
-        user: {
+        user_id: {
             type: Schema.Types.ObjectId,
             ref: 'users'
         },
-        place: {
-            type: Schema.Types.ObjectId,
-            ref: 'places'
-        },
-        activity: {
-            type: Schema.Types.ObjectId,
-            ref: 'activities'
-        },
         popularity_rating: {
-            type: String,
+            type: Number,
+            default: 0,
             required: true
         }
+        // place: {
+        //     type: Schema.Types.ObjectId,
+        //     ref: 'places'
+        // },
+        // activity: {
+        //     type: Schema.Types.ObjectId,
+        //     ref: 'activities'
+        // },
+        // above may not be needed for reviewing each place/activity
     },
     {timestamps: true}
 )
