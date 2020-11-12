@@ -9,6 +9,10 @@ module.exports = new Schema(
         price: {
             type: Number
         },
+        city: {
+            type: Schema.Types.ObjectId,
+            ref: 'places'
+        },
         popularity_rating: {
             type: Number,
             default: 0
@@ -27,15 +31,7 @@ module.exports = new Schema(
         friends: [{
             type: Schema.Types.ObjectId,
             ref: 'users'
-        }],
-        trip_start: {
-            type: Schema.Types.trip_start,
-            ref: 'trips'
-        },
-        trip_end: {
-            type: Schema.Types.trip_end,
-            ref: 'trips'
-        }
+        }]
     },
     {timestampes: true}
 )

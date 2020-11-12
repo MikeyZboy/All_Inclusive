@@ -7,17 +7,15 @@ module.exports = new Schema(
             required: true
         },
         trip_start: {
-            type: Date,
-            required: true
+            type: Date
         },
         trip_end: {
-            type: Date,
-            required: true
+            type: Date
         },
-        city: {
-            type: Schema.Types.ObjectId,
-            ref: 'places'
-        },
+        // city: {
+        //     type: Schema.Types.ObjectId,
+        //     ref: 'places'
+        // },
         activities: [{
             type: Schema.Types.ObjectId,
             ref: 'activities'

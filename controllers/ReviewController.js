@@ -1,5 +1,11 @@
 const { Trip, Review } = require('../db/schema')
 
+const GetReview = async (req, res) => {
+    const review = await Review.findById(req.params.review_id).select('comment')
+    console.log({msg: `did it work?`})
+    res.json(review)
+}
+
 const CreateReview = async (req, res) => {
     const review = new Review({...req.body, user_id: req.params.user_id })
     review.save()
@@ -51,4 +57,5 @@ module.exports = {
     UpdateReview,
     RemoveReview,
     //RateReview
+    GetReview
 }

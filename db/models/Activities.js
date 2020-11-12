@@ -16,12 +16,10 @@ module.exports = new Schema(
             required: true
         },
         date: {
-            type: Date,
-            required: true
+            type: Date
         },
         time: {
-            type: Number,
-            required: true
+            type: Number
         },
         hotel: {
             type: Schema.Types.ObjectId,
