@@ -10,10 +10,10 @@ const CreateUser = async (req, res) => {
         })
         user.save()
         res.send(user)
-        console.log(`profile created!`)
     }catch (error) {
         throw error
     }
+    console.log(`profile created!`)
 }
 
 const SignInUser = async (req, res, next) => {
@@ -25,11 +25,11 @@ const SignInUser = async (req, res, next) => {
                 name: user.name
             }
         }
-        console.log(payload)
         return res.send(payload)
     }catch (error) {
-        res.status(401).send({ msg: 'Unauthorized' })
+        res.status(401).send({ msg: 'no password' })
     }
+    console.log({msg: `Success!`})
 }
 
 const GetProfile = async (req,res) => {
@@ -39,8 +39,9 @@ const GetProfile = async (req,res) => {
         // *TODO = userFriends... 
         res.send(user, userTrips)
     } catch (error) {
-        res.status(401).send({ msg: 'Unauthorized' })
+        res.status(401).send({ msg: 'you didnt say magic word' })
     }
+    console.log({msg: `something's wrong`})
 }
 
 module.exports = {

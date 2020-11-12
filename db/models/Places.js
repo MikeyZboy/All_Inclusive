@@ -18,9 +18,9 @@ module.exports = new Schema(
             type: String,
             required: true
         },
-        activities: [{
+        hotels: [{
             type: Schema.Types.ObjectId,
-            ref: 'activities'
+            ref: 'hotels'
         }],
         friends: [{
             type: Schema.Types.ObjectId,

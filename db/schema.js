@@ -5,18 +5,20 @@ const TripsModel = require('./models/Trips')
 const ReviewsModel = require('./models/Reviews')
 const PlacesModel = require('./models/Places')
 const ActivitiesModel = require('./models/Activities')
+const HoteslModel = require('./models/Hotels')
 
 const User = model('users', UsersModel)
 const Trip = model('trips', TripsModel)
 const Review = model('reviews', ReviewsModel)
 const Place = model('places', PlacesModel)
 const Activity = model('activities', ActivitiesModel)
+const Hotel = model('hotels', HoteslModel)
 
 module.exports = {
     User,
     Trip,
     Review,
     Place,
-    Activity
+    Activity,
+    Hotel
 }
-

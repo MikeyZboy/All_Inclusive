@@ -14,7 +14,7 @@ module.exports = new Schema(
             type: Date,
             required: true
         },
-        place: {
+        city: {
             type: Schema.Types.ObjectId,
             ref: 'places'
         },

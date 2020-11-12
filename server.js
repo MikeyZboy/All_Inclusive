@@ -3,7 +3,7 @@ const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-//const AppRouter = require('./routes/AppRouter)
+const AppRouter = require('./routes/AppRouter')
 
 const PORT = process.env.PORT || 8000
 const app = express()
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', (req, res) => res.send({msg: 'SeRvEr WoRkInG!'}))
 //confirmed connection 11.11;13:42:00
-// app.use('/api', AppRouter)
+app.use('/api', AppRouter)
 
 app.listen(PORT, async () => {
     try {
@@ -26,3 +26,5 @@ app.listen(PORT, async () => {
         throw error
     }
 })
+//confirmed working 11.11;22:11:56
+

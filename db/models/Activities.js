@@ -23,9 +23,9 @@ module.exports = new Schema(
             type: Number,
             required: true
         },
-        place: {
+        hotel: {
             type: Schema.Types.ObjectId,
-            ref: 'places'
+            ref: 'hotels'
         },
         friends: [{
             type: Schema.Types.ObjectId,

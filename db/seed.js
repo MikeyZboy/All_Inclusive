@@ -24,20 +24,51 @@ const reviews = new Array(500).fill().map(() => ({
 const trips = new Array(100).fill().map(() => ({
   _id: Types.ObjectId(),
   name: faker.random.words(),
-  // trip_start: faker.random.date(),
-  // trip_end: faker.random.date(),
+  trip_start: faker.random.date(),
+  trip_end: faker.random.date(),
+  city: faker.address.city(),
+  // image_url: faker.random.image(),
+  // popularity_rating: faker.random.number(),
+  // description: faker.lorem.paragraph(),
+  activities: activities.slice(
+    Math.floor(Math.random() * activities.length),
+    Math.floor(Math.random() * activities.length)
+    )
+    .map((a) => a._id),
+    hotel_id: hotels[Math.floor(Math.random() * hotels.length)]._id,
+  friends: friends.slice(
+    Math.floor(Math.random() * users.length),
+    Math.floor(Math.random() * users.length)
+    )
+    .map((u) => u._id),
+    user_id: users[Math.floor(Math.random() * users.length)]._id,
+  reviews: reviews.slice(
+    Math.floor(Math.random() * reviews.length),
+    Math.floor(Math.random() * reviews.length)
+    )
+    .map((r) => r._id),
+    user_id: users[Math.floor(Math.random() * users.length)]._id
+  }))
+
+  const hotels = new Array(100).fill().map(() => ({
+  _id: Types.ObjectId(),
+  name: faker.random.words(),
   image_url: faker.random.image(),
   popularity_rating: faker.random.number(),
   description: faker.lorem.paragraph(),
   place: faker.address.city(),
   reviews: reviews
-    .slice(
-      Math.floor(Math.random() * reviews.length),
-      Math.floor(Math.random() * reviews.length)
+  .slice(
+    Math.floor(Math.random() * reviews.length),
+    Math.floor(Math.random() * reviews.length)
     )
     .map((r) => r._id),
-  user_id: users[Math.floor(Math.random() * users.length)]._id
-}))
+    user_id: users[Math.floor(Math.random() * users.length)]._id
+    // trip_start: faker.random.date(),
+    // trip_end: faker.random.date(),
+  }))
+
+
 
 const seed = async () => {
   await connection.connect
