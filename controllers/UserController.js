@@ -1,4 +1,3 @@
-const Users = require('../db/models/Users')
 const { User, Trip } = require('../db/schema')
 
 const CreateUser = async (req, res) => {
