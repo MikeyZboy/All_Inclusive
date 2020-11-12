@@ -1,8 +1,9 @@
+import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from '../pages/Home'
 import LandingPage from '../pages/LandingPage'
 
-class Router extends Component {
+class Router extends React.Component {
     constructor() {
         super() 
         this.state = {
