@@ -13,7 +13,7 @@ export default class SignIn extends Component {
     }
 
     handleChange = ({ target }) => {
-        this.setState({ [target.name]: target.value, formErro: false})
+        this.setState({ [target.name]: target.value, formError: false})
     }
 
     handleSubmit = async (e) => { 

@@ -2,7 +2,7 @@ import ApiClient from './ApiClient'
 
 export const __GetTrips = async (page, limit) => {
     try {
-        const res = await ApiClient.get(`/trips?page${page || 1}&limit=${limit || 10}`)
+        const res = await ApiClient.get(`/trips?page${page || 1}&limit=${limit || 5}`)
         return res.data
     } catch (error) {
         throw error

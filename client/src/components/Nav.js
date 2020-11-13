@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import '../styles/Nav.css'
 
-export default ({ authenticated, currentUser, className }) => {
+const Nav = ( { authenticated, currentUser, className }) => {
     return authenticated && currentUser ? 
     (
         <header className={className}>
@@ -10,7 +10,6 @@ export default ({ authenticated, currentUser, className }) => {
             <nav>
                 <NavLink activeClassName="nav-active" to="/profile">Activity</NavLink>
                 <NavLink activeClassName="nav-active" to="/trips">Trips</NavLink>
-                <Navlink activeClassName="nav-active" to="/connect">Friends</Navlink>
                 <NavLink activeClassName="nav-active" to="/" onClick={() => localStorage.clear()}>Sign Out</NavLink>
             </nav>
         </header>
@@ -18,10 +17,14 @@ export default ({ authenticated, currentUser, className }) => {
         <header className={className}>
             <div className="icon"></div>
             <nav>
-                <NavLink activeClassName="nav-active" to="/trips">Trips</NavLink>
+                <NavLink activeClassName="nav-active" to="/trips">Discover</NavLink>
                 <NavLink activeClassName="nav-active" to="/register">Sign Up</NavLink>
                 <NavLink activeClassName="nav-active" to="/login">Sign In</NavLink>
             </nav>
         </header>
     )
 }
+
+export default Nav
+
+//{ authenticated, currentUser, className }

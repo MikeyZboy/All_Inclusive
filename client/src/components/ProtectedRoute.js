@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
 
-export default ({ authenticated, children, component: Component, ...rest }) => 
+const ProtectedRoute = ({ authenticated, children, component: Component, ...rest }) => 
 authenticated === true ? (
     <Route {...rest} component={Component}>
         {console.log(authenticated)}
@@ -9,3 +9,5 @@ authenticated === true ? (
 ) : (
     <Redirect to="/"/>
 )
+
+export default ProtectedRoute

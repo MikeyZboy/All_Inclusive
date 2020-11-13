@@ -1,6 +1,6 @@
-import Axios from 'axios'
+import axios from 'axios'
 
-const ApiClient = Axios.create({
+const ApiClient = axios.create({
     baseURL: 'http://localhost:3000/api'
 })
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TextInput from './components/TextInput'
+import TextInput from '../components/TextInput'
 import { __RegisterUser } from '../services/UserService'
 import '../styles/signup.css'
 
