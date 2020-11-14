@@ -1,10 +1,10 @@
-const connection = require('./db/connection')
+const AppRouter = require('./routes/AppRouter')
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const helmet = require('helmet')
-const AppRouter = require('./routes/AppRouter')
+const connection = require('./db/connection')
 
 const PORT = process.env.PORT || 8000
 const app = express()
@@ -24,7 +24,7 @@ app.listen(PORT, async () => {
         console.log('Database Connected')
         console.log(`App listening on port ${PORT}!`)
     } catch (error) {
-        throw new Error ('Connection Error')
+        throw new Error('Connection Error')
     }
 })
 

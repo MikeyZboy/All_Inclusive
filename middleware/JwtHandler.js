@@ -3,7 +3,7 @@ require('dotenv').config()
 const secretKey = process.env.SECRET_KEY
 
 const getToken = (req, res, next) => {
-    const token = req.headers['authorization'].split('')[1]
+    const token = req.headers['authorization'].split(' ')[1]
     res.locals.token = token
     next()
 }
@@ -12,7 +12,7 @@ const verifyToken = (req, res, next) => {
     let token = res.locals.token
     jwt.verify(token, secretKey, (err, t) => {
         if (err) {
-            return res.send(401).json({msg: `Unauthorized`})
+            return res.send(401).json({msg: `You Unauthorized`})
         }
         return next()
     })

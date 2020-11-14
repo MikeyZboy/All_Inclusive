@@ -23,7 +23,7 @@ handleSubmit = async (e) => {
         await __UploadTrip(this.state, this.props.currentUser._id)
         this.props.history.push('/profile')
     } catch (error) {
-        throw error
+        console.log(error)
     }
 }
 

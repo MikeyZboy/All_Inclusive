@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import { __DeleteTrip } from ''
-import { __GetProfile } from ''
-
-
-
+import { __DeleteTrip } from '../services/TripService'
+import { __GetProfile } from '../services/UserService'
 
 export default class Profile extends Component {
     constructor() {
@@ -27,7 +24,7 @@ export default class Profile extends Component {
         }
     }
 
-    deleteTrip = async () => {
+    deleteTrip = async (id) => {
         try {
             const tripsToKeep = this.state.trips.filter((trip) => trip._id !== id)
             this.setState({ trips: tripsToKeep })

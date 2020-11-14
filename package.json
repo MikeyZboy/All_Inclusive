@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Mike Zahuta",
-  "license": "ISC",
+  "license": "MIT",
   "nodemonConfig": {
     "ignore": [
       "client/"
     ]
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },

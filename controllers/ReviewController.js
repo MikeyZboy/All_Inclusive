@@ -40,22 +40,9 @@ const RemoveReview = async (req, res) => {
     res.send(updatedTrip)
 }
 
-//rateReview might not be an actual CRUD operation - 
-//more like an Onclick function when someone likes the review
-//so I dont think we're doing that here yet...
-
-// const RateReview = async (req, res) => {
-//     await Review.findByIdAndUpdate({_id: req.params.review_id})
-//     const addPopularity = await Review.findByIdAndUpdate(
-        
-//     )
-// }
-
-
 module.exports = {
     CreateReview,
     UpdateReview,
     RemoveReview,
-    //RateReview
     GetReview
 }

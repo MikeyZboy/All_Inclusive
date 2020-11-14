@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Link, Card } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { __GetTrip } from '../services/TripService'
+import Card from '../components/Card'
 import '../styles/postview.css'
 
 export default class ViewTrip extends Component {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component, useReducer } from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import Home from '../pages/Home'
 import LandingPage from '../pages/LandingPage'
@@ -11,6 +11,7 @@ import Profile from '../pages/Profile'
 import UpdateTrip from '../pages/UpdateTrip'
 import ViewTrip from '../pages/ViewTrip'
 import ProtectedRoute from './ProtectedRoute'
+import Nav from './Nav'
 import { __CheckSession } from '../services/UserService'
 
 class Router extends React.Component {
@@ -70,10 +71,24 @@ class Router extends React.Component {
                     <Route
                     path="/discover"
                     component={(props) => (
-                        <Layout>
+                        <Layout
+                        currentUser={this.state.currentUser}
+                        authenticated={this.state.authenticated}
+                        >
                             <Discover {...props} />
                         </Layout>
                     )}
+                    />
+                    <Route
+                    path="/trips/:trip_id"
+                    component={(props) => (
+                        <Layout 
+                        currentUser={this.state.currentUser}
+                        authenticated={this.state.authenticated}
+                        >
+                            <ViewTrip {...props}/>
+                        </Layout>
+                        )}
                     />
                     <Route 
                     path="/register"
@@ -87,10 +102,48 @@ class Router extends React.Component {
                     path="/login"
                     component={(props) => (
                         <LandingPage>
-                            <SignIn {...props} />
+                            <SignIn 
+                            toggleAuthenticated={this.toggleAuthenticated}
+                            {...props} />
                         </LandingPage>
                     )}
                     />
+                    <ProtectedRoute 
+                    authenticated={this.state.authenticated}
+                    path="/profile"
+                    component={(props) => (
+                        <Layout 
+                        currentUser={this.state.currentUser}
+                        authenticated={this.state.authenticated}
+                        >
+                            <Profile {...props} currentUser={this.state.currentUser} />
+                        </Layout>
+                    )}
+                    />
+                    <ProtectedRoute
+                    authenticated={this.state.authenticated}
+                    path="/create"
+                    component={(props)=> (
+                        <Layout 
+                        currentUser={this.state.currentUser}
+                        authenticated={this.state.authenticated}
+                        >
+                            <CreateTrip {...props} currentUser={this.state.currentUser}/>
+                        </Layout>
+                    )}     
+                    />
+                    <ProtectedRoute
+                    authenticated={this.state.authenticated}
+                    path="/update/:trip_id"
+                    component={(props) => (
+                        <Layout 
+                        currentUser={this.state.currentUser}
+                        authenticated={this.state.authenticated}
+                        >
+                            <UpdateTrip {...props} currentUSer={this.state.currentUser}/> 
+                        </Layout>
+                    )}
+                    />    
                 </Switch>
                 )}
             </main>

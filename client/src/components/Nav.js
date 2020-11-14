@@ -26,5 +26,3 @@ const Nav = ( { authenticated, currentUser, className }) => {
 }
 
 export default Nav
-
-//{ authenticated, currentUser, className }
