@@ -44,7 +44,7 @@ class Router extends React.Component {
     }
     
     toggleAuthenticated =  (value, user, done) => {
-        this.setState({authenticated: value, currentUser: user}, () => done)
+        this.setState({authenticated: value, currentUser: user}, () => done())
     }
 
     componentDidMount() {
@@ -68,28 +68,6 @@ class Router extends React.Component {
                         </LandingPage>
                     )}
                     />
-                    <Route
-                    path="/discover"
-                    component={(props) => (
-                        <Layout
-                        currentUser={this.state.currentUser}
-                        authenticated={this.state.authenticated}
-                        >
-                            <Discover {...props} />
-                        </Layout>
-                    )}
-                    />
-                    <Route
-                    path="/trips/:trip_id"
-                    component={(props) => (
-                        <Layout 
-                        currentUser={this.state.currentUser}
-                        authenticated={this.state.authenticated}
-                        >
-                            <ViewTrip {...props}/>
-                        </Layout>
-                        )}
-                    />
                     <Route 
                     path="/register"
                     component={(props) => (
@@ -107,6 +85,28 @@ class Router extends React.Component {
                             {...props} />
                         </LandingPage>
                     )}
+                    />
+                    <Route
+                    path="/discover"
+                    component={(props) => (
+                        <Layout
+                        currentUser={this.state.currentUser}
+                        authenticated={this.state.authenticated}
+                        >
+                            <Discover {...props}/>
+                        </Layout>
+                    )}
+                    />
+                    <Route
+                    path="/trips/:trip_id"
+                    component={(props) => (
+                        <Layout 
+                        currentUser={this.state.currentUser}
+                        authenticated={this.state.authenticated}
+                        >
+                            <ViewTrip {...props}/>
+                        </Layout>
+                        )}
                     />
                     <ProtectedRoute 
                     authenticated={this.state.authenticated}
