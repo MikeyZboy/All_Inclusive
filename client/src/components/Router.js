@@ -37,7 +37,7 @@ class Router extends React.Component {
                     () => this.props.history.push('/profile')
                 )
             } catch (error) {
-                this.setState({currentUser: null, authenticated: false})
+                this.setState({ currentUser: null, authenticated: false })
                 localStorage.clear()
             }
         }

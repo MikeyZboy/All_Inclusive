@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
-import { __GetTrip, __UpdateTrip } from '../services/TripService'
+import { __GetTrip, __UpdateTrip, __DeleteTrip } from '../services/TripService'
 
 export default class UpdateTrip extends Component {
     constructor(){
@@ -90,9 +90,11 @@ export default class UpdateTrip extends Component {
                     value={reviews}
                     onChange={this.handleChange}
                     />
-                    <button>Update</button>
+                    <button>Update Trip</button>
                 </form>
             </div>
         )
     }
+
+
 }

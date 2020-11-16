@@ -6,7 +6,6 @@ const {
 
 
 const CreateUser = async (req, res) => {
-    try {
         const body = req.body
         const password_digest = await generatePassword(body.password)
         const user = new User({
@@ -14,11 +13,9 @@ const CreateUser = async (req, res) => {
             email: body.email,
             password_digest
         })
+        //console.log('new user created!')
         user.save()
         res.send(user)
-    }catch (error) {
-        throw error
-    }
 }
 
 const SignInUser = async (req, res, next) => {
@@ -33,25 +30,27 @@ const SignInUser = async (req, res, next) => {
             res.locals.payload = payload
             return next()
         }
-        res.status(401).send({ msg: 'Unauthorized 1' })
+        res.status(401).send({ msg: 'Unauthorized Sign In' })
     }catch (error) {
         throw error
     }
 }
 
 const GetProfile = async (req,res) => {
-    try {
         const user = await User.findById(req.params.user_id).select('_id name')
-        // const userTrips = await Trip.find({ user_id: req.params.user_id })
+        const trips = await Trip.find({ user_id: req.params.user_id })
         // *TODO = userFriends... 
-        res.send(user)
-    } catch (error) {
-        res.status(401).send({ msg: 'you didnt say magic word' })
-    }
+        res.send(user, trips)
+}
+
+const RefreshSession = (req, res) => {
+  const token = res.locals.token
+  res.send(token)
 }
 
 module.exports = {
     CreateUser,
     SignInUser,
-    GetProfile
+    GetProfile,
+    RefreshSession
 }

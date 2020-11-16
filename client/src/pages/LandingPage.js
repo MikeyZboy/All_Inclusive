@@ -13,19 +13,26 @@ const LandingPage = ({ children }) => {
                         <h3 className="logo">All_Inclusive</h3>
                     </div>
                     <div className="hero-wrapper flex-row">
+                    <div className="cl-left flex-col">
                         <Hero />
                     </div>
+                    </div>
                 </div>
+                    <div className="img-wrapper">
+                    <img src='https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.reckontalk.com%2Fwp-content%2Fuploads%2F2014%2F11%2FBeautiful-Hotels-Viceroy-Hotel-Bali.jpg&f=1&nofb=1' 
+                            alt="beautiful resort" />
+                    </div>    
             </section>
-            <section className="right flex-sm">
+            <section className=".newnav">
                     <Nav />
                     {children}
-            </section>
-            <section className="home content-wrapper flex-col">
-                    <Home />
             </section>
         </div>
     )
 }
 
 export default LandingPage
+
+//            <section className="home content-wrapper flex-col">
+//                    <Home />
+//            </section>

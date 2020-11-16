@@ -5,7 +5,7 @@ import '../styles/Nav.css'
 const Nav = ( { authenticated, currentUser, className }) => {
     return authenticated && currentUser ? 
     (
-        <header className={className}>
+        <header className="newnav">
             <div className="icon">Welcome Back {currentUser.name}</div>
             <nav>
                 <NavLink activeClassName="nav-active" to="/profile">Activity</NavLink>
@@ -14,7 +14,7 @@ const Nav = ( { authenticated, currentUser, className }) => {
             </nav>
         </header>
     ) : (
-        <header className={className}>
+        <header className="newnav">
             <div className="icon"></div>
             <nav>
                 <NavLink activeClassName="nav-active" to="/trips">Discover</NavLink>
@@ -26,3 +26,5 @@ const Nav = ( { authenticated, currentUser, className }) => {
 }
 
 export default Nav
+
+//{ authenticated, currentUser, className }

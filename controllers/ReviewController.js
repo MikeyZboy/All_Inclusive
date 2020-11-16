@@ -38,6 +38,7 @@ const RemoveReview = async (req, res) => {
         {upsert: true, new: true}
     )
     res.send(updatedTrip)
+    console.log(`Review Removed`)
 }
 
 module.exports = {

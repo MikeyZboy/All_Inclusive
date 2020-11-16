@@ -1,9 +1,6 @@
 import React from 'react'
 import Search from '../components/TextInput'
 import Card from '../components/Card'
-// import Maldives from '.../assets/maldives.jpg'
-// import Greek from '.../assets/greek.png'
-// import Mexico from '.../assets/mexico.jpg'
 
 const Home = () => {
     return (

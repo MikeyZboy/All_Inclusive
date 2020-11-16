@@ -28,7 +28,7 @@ export default class SignIn extends Component {
             this.setState({ formError: true })
         }
     }
-    
+
     render(){
         const { email, password } = this.state
         return(
@@ -49,7 +49,7 @@ export default class SignIn extends Component {
                     onChange={this.handleChange}
                     />
                 <button>Sign In</button>
-                {this.state.formError ? <p>Error While Logging In</p> : <p></p>}
+                {this.state.formError ? <p>Login Error</p> : <p></p>}
                 </form>
             </div>
         )

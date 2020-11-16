@@ -29,7 +29,7 @@ export default class ViewTrip extends Component {
         const { trip } = this.state
         if (this.state.post) {
             return(
-                <div className="trips detail">
+                <div className="posts detail">
                     <div className="content-wrapper flex-row">
                             <div className="left-content col-1">
                                 <div className="card image-wrapper">

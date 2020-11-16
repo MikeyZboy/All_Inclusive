@@ -20,8 +20,10 @@ export const __RegisterUser = async (formData) => {
 }
 
 export const __LoginUser = async (userData) => {
+    console.log('User Data', userData)
     try {
-        const res = await ApiClient.post(`users/login`, userData)
+        const res = await ApiClient.post(`/users/login`, userData)
+        console.log(res.data)
         return res.data
     } catch (error) {
         throw error

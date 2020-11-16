@@ -9,7 +9,6 @@
   display: flex;
   box-shadow: 10px 2px 10px rgba(0, 0, 0, 0.2);
 }
-
 .left .mask {
   position: absolute;
   border-radius: inherit;
@@ -20,7 +19,6 @@
   align-items: center;
   justify-content: space-between;
 }
-
 .left .logo {
   font-size: 1.3rem;
 }
@@ -75,7 +73,7 @@
   margin-top: 2em;
 }
 .hero a {
-  background-color: #ff7043;
+  background-color: #4DCEE8;
   padding: 1em 4em;
   border-radius: 1em;
   color: #eee;
@@ -85,7 +83,7 @@
 }
 
 .hero a:hover {
-  background-color: #ffa270;
+  background-color: #4DCEE8;
   color: #333;
   padding: 1.2em 4.5em;
 }
@@ -126,6 +124,20 @@
 .right .discover {
   flex: 2;
   width: 90%;
+}
+
+.discover h4 {
+  margin-left: 1em;
+  color: #ff7043;
+}
+
+.discover .card-wrapper {
+  width: 95%;
+  max-width: 95%;
+  margin: 0 auto;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  padding: 0.5em 1em;
 }
 
 .discover h4 {

@@ -12,6 +12,8 @@ ApiClient.interceptors.request.use(
         }
         return config
     },
-    (err) => Promise.reject(err)
+    (err) => Promise.reject(err), 
 )
+
+
 export default ApiClient

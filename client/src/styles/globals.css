@@ -60,7 +60,7 @@ textarea:focus::placeholder {
 }
 
 button {
-  background-color: #ff7043;
+  background-color: #4DCEE8;
   padding: .4em 2em;
   border-radius: .5em;
   color: #eee;
@@ -71,7 +71,7 @@ button {
 }
 
 button:hover {
-  background-color: #ffa270;
+  background-color: #4DCEE8;
   color: #333;
 }
 

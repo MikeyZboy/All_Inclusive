@@ -46,11 +46,9 @@ const UpdateTrip = async (req, res) => {
         (err, (d) => (err ? err: res.send(d)))
     )
 }
-// what is going in with the error catch/throw in line 44?
 
 const DeleteTrip = async (req, res) => {
-    await Review.deleteMany({_id: {$in: trip.reviews }})
-    await Trip.findByIdAndDelete(req.params.trip_id)
+    await Trip.deleteOne({_id: req.params.trip_id})
     res.send({msg:`Trip Deleted`})
 }
 
