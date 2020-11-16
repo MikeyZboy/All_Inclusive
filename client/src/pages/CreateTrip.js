@@ -6,10 +6,12 @@ export default class CreateTrip extends Component {
     constructor(){
         super()
         this.state = {
-            title: '',
-            place: '',
-            image_url: '',
-            description: ''
+            name: '',
+            trip_start: '',
+            trip_end: '',
+            hotel: '',
+            activity: '',
+            friend: ''
         }
     }
 
@@ -21,43 +23,59 @@ handleSubmit = async (e) => {
     e.preventDefault()
     try {
         await __UploadTrip(this.state, this.props.currentUser._id)
-        this.props.history.push('/profile')
+        this.props.history.push(`/create`)
+        console.log(`${this.props.currentUser._id} created a new trip`)
     } catch (error) {
         console.log(error)
     }
 }
 
+handleClick = async (e) => {
+
+}
+
 render(){
-    const { title, place, description, image_url } = this.state
+    const { name, trip_start, trip_end, friend, hotel, activity } = this.state
     return(
-        <div className="upload content">
-            <form className="flex-col" onSubmit={this.handleSubmit}>
+        <div className="signin flex-col">
+            <form className="" onSubmit={this.handleSubmit}>
                 <TextInput 
-                placeholder="Title"
-                name="title"
-                value={title}
-                onChange={this.handleChange}
-                />
-                <TextInput 
-                placeholder="Place"
-                name="place"
-                value={place}
-                onChange={this.handleChange}
-                />
-                <TextInput 
-                fieldType="textfield"
-                placeholder="Description"
-                name="description"
-                value={description}
+                placeholder="Where are you going?"
+                name="name"
+                value={name}
                 onChange={this.handleChange}
                 />
                 <TextInput
-                placeholder="Image"
-                name="image_url"
-                value={image_url}
+                placeholder="Trip Start (YYYY-MM-DAY)"
+                name="trip_start"
+                value={trip_start}
                 onChange={this.handleChange}
                 />
-            <button>Create Trip!</button>
+                <TextInput
+                placeholder="Trip End (YYYY-MM-DAY)"
+                name="trip_end"
+                value={trip_end}
+                onChange={this.handleChange}
+                />
+                <TextInput 
+                placeholder="Where will you stay?"
+                name="hotel"
+                value={hotel}
+                onChange={this.handleChange}
+                />
+                <TextInput 
+                placeholder="What do you want to do?"
+                name="activity"
+                value={activity}
+                onChange={this.handleChange}
+                />
+                <TextInput 
+                placeholder="Who do you want to invite?"
+                name="friend"
+                value={friend}
+                onChange={this.handleChange}
+                />
+            <button onSubmit={this.handleSubmit}>Create Trip!</button>
             </form>
         </div>
     )

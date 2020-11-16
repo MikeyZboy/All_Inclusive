@@ -76,16 +76,6 @@ class Router extends React.Component {
                         </LandingPage>
                     )}
                     />
-                    <Route 
-                    path="/login"
-                    component={(props) => (
-                        <LandingPage>
-                            <SignIn 
-                            toggleAuthenticated={this.toggleAuthenticated}
-                            {...props} />
-                        </LandingPage>
-                    )}
-                    />
                     <Route
                     path="/discover"
                     component={(props) => (
@@ -97,16 +87,15 @@ class Router extends React.Component {
                         </Layout>
                     )}
                     />
-                    <Route
-                    path="/trips/:trip_id"
+                    <Route 
+                    path="/login"
                     component={(props) => (
-                        <Layout 
-                        currentUser={this.state.currentUser}
-                        authenticated={this.state.authenticated}
-                        >
-                            <ViewTrip {...props}/>
-                        </Layout>
-                        )}
+                        <LandingPage>
+                            <SignIn 
+                            toggleAuthenticated={this.toggleAuthenticated}
+                            {...props} />
+                        </LandingPage>
+                    )}
                     />
                     <ProtectedRoute 
                     authenticated={this.state.authenticated}
@@ -122,7 +111,7 @@ class Router extends React.Component {
                     />
                     <ProtectedRoute
                     authenticated={this.state.authenticated}
-                    path="/create"
+                    path="/trips/create"
                     component={(props)=> (
                         <Layout 
                         currentUser={this.state.currentUser}
@@ -131,6 +120,18 @@ class Router extends React.Component {
                             <CreateTrip {...props} currentUser={this.state.currentUser}/>
                         </Layout>
                     )}     
+                    />
+                    <ProtectedRoute
+                    authenticated={this.state.authenticated}
+                    path="/trips/:trip_id"
+                    component={(props) => (
+                        <Layout 
+                        currentUser={this.state.currentUser}
+                        authenticated={this.state.authenticated}
+                        >
+                            <ViewTrip {...props} currentUser={this.state.currentUser}/>
+                        </Layout>
+                        )}
                     />
                     <ProtectedRoute
                     authenticated={this.state.authenticated}

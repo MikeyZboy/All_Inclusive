@@ -52,8 +52,8 @@ export default class UpdateTrip extends Component {
     render(){
         const { name, trip_start, trip_end, activities, friends, reviews } = this.state
         return(
-            <div className="upload content">
-                <form className="flex-col" onSubmit={this.handleSubmit}>
+            <div className="">
+                <form className="" onSubmit={this.handleSubmit}>
                     <TextInput 
                     placeholder="Trip Name"
                     name="name"

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { __GetTrip } from '../services/TripService'
 import Card from '../components/Card'
-import '../styles/postview.css'
 
 export default class ViewTrip extends Component {
     constructor() {
@@ -27,31 +26,31 @@ export default class ViewTrip extends Component {
 
     render() {
         const { trip } = this.state
-        if (this.state.post) {
+        if (this.state.trip) {
             return(
-                <div className="posts detail">
-                    <div className="content-wrapper flex-row">
-                            <div className="left-content col-1">
-                                <div className="card image-wrapper">
+                <div className="">
+                    <div className="">
+                            <div className="">
+                                <div className="">
                                     <img src={trip.image_url} alt="post"/>
                                 </div>
                             </div>
-                        <div className="right-content col-2 flex-col">
+                        <div className="">
                             <div className="card">
                                     <Card />    
-                                <div className="card card-content">
+                                <div className="">
                                     <h2>{trip.name}</h2>
                                 </div>
-                            <div className="stats flex-row">
+                            <div className="">
                                 <div>
-                                    <p>Comments</p> 
-                                    <p>{trip.reviews.length}</p>
+                                    <p>Hotels</p> 
+                                    <p>{trip.hotels.length}</p>
                                 </div>
                             </div>
-                            <div className="comments">
+                            <div className="">
                                 {trip.reviews.length ? (
                                     trip.reviews.map((review) => (
-                                        <li className="comment=item"
+                                        <li className=""
                                         key={review._id}>
                                             <p>
                                                 <Link>{review.user_id.name}</Link>
@@ -69,6 +68,6 @@ export default class ViewTrip extends Component {
                 </div>
             )
         }
-        return <h3>Loading...</h3>
+        return <h3>Why am I at ViewTrip.js?...</h3>
     }
 }

@@ -6,16 +6,20 @@ module.exports = new Schema(
             type: String,
             required: true
         },
+        user_id: {
+            type: Schema.Types.ObjectId,
+            ref: 'users'
+        },
         trip_start: {
             type: Date
         },
         trip_end: {
             type: Date
         },
-        // city: {
-        //     type: Schema.Types.ObjectId,
-        //     ref: 'places'
-        // },
+        hotels: [{
+                type: Schema.Types.ObjectId,
+                ref: 'hotels'
+        }],
         activities: [{
             type: Schema.Types.ObjectId,
             ref: 'activities'
@@ -23,10 +27,6 @@ module.exports = new Schema(
         friends: [{
             type: Schema.Types.ObjectId,
             ref: 'users'
-        }],
-        reviews: [{
-            type: Schema.Types.ObjectId,
-            ref: 'reviews'
         }]
     },
     {timestamps: true}

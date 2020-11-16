@@ -37,10 +37,14 @@ const SignInUser = async (req, res, next) => {
 }
 
 const GetProfile = async (req,res) => {
+    try {
         const user = await User.findById(req.params.user_id).select('_id name')
         const trips = await Trip.find({ user_id: req.params.user_id })
         // *TODO = userFriends... 
         res.send(user, trips)
+    } catch (error) {
+        console.log('GetProfile Error')
+    }
 }
 
 const RefreshSession = (req, res) => {

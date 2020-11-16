@@ -14,6 +14,7 @@ export default class Profile extends Component {
 
     componentDidMount() {
         this.getTrips()
+        console.log(this.state)
     }
 
     getTrips = async () => {
@@ -37,10 +38,10 @@ export default class Profile extends Component {
 
     render() {
         return(
-      <div className="profile">
+      <div className="">
         <div>
           {this.state.trips.length ? (
-            <div className="post-content wrapper flex-row">
+            <div className="">
               {this.state.trips.map((trip) => (
                 <div key={trip._id}>
                   <Card
@@ -48,15 +49,13 @@ export default class Profile extends Component {
                       this.props.history.push(`/trips/${trip._id}`)
                     }
                   >
-                    <div className="mask flex-col">
-                      <div className="card-content">
-                        <h3>{trip.title}</h3>
-                        <p>{trip.description}</p>
+                    <div className="">
+                      <div className="">
+                        <h3>{trip.name}</h3>
                       </div>
                     </div>
-                    <img src={trip.image_url} alt="" />
                   </Card>
-                  <div className="flex-row button-wrapper">
+                  <div className="">
                     <button
                       onClick={() =>
                         this.props.history.push(`/trips/update/${trip._id}`)
@@ -72,7 +71,14 @@ export default class Profile extends Component {
               ))}
             </div>
           ) : (
-            <div className="span message">No Posts</div>
+            <div className="">
+              <button
+                onClick={() =>
+                  this.props.history.push(`/trips/create`)
+              }
+              >Plan your first trip!
+              </button>
+            </div>
           )}
         </div>
       </div>

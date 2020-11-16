@@ -6,24 +6,22 @@ import '../styles/Landing.css'
 
 const LandingPage = ({ children }) => {
     return (
-        <div className="landing-page flex-row">
-            <section className="left flex-sm flex-col">
-                <div className="mask flex-col">
-                    <div className="content-wrapper flex-col">
-                        <h3 className="logo">All_Inclusive</h3>
+        <div className="">
+            <section className="">
+                <div className="">
+                    <div className="">
+                        <h3 className="">Exclusively Inclusives</h3>
                     </div>
-                    <div className="hero-wrapper flex-row">
-                    <div className="cl-left flex-col">
+                    <div className="">
+                    <div className="">
                         <Hero />
                     </div>
                     </div>
                 </div>
-                    <div className="img-wrapper">
-                    <img src='https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.reckontalk.com%2Fwp-content%2Fuploads%2F2014%2F11%2FBeautiful-Hotels-Viceroy-Hotel-Bali.jpg&f=1&nofb=1' 
-                            alt="beautiful resort" />
+                    <div className="">
                     </div>    
             </section>
-            <section className=".newnav">
+            <section className="">
                     <Nav />
                     {children}
             </section>
