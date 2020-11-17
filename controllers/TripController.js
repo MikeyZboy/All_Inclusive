@@ -46,12 +46,20 @@ const CreateTrip = async (req, res) => {
 }
 
 const UpdateTrip = async (req, res) => {
-    await Trip.findByIdAndUpdate(
-        req.params.trip_id,
-        {...req.body},
-        {new: true, useFindAndModify: false},
+    const newTrip = new Trip ({...req.body, user_id: req.params.user_id} )
+    try { 
+        await Trip.findByIdAndUpdate(
+            req.params.trip_id,
+            {$push: {
+                trips: newTrip
+            }
+        }, {
+            upsert:true, new: true, useFindAndModify: false
+        })
+        res.send(newTrip)
+        } catch (err) {
         (err, (d) => (err ? err: res.send(d)))
-    )
+        }
 }
 
 const DeleteTrip = async (req, res) => {

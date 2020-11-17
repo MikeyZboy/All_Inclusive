@@ -10,8 +10,7 @@ export default class UpdateTrip extends Component {
             trip_start: Date,
             trip_end: Date,
             activities: [],
-            friends: [],
-            reviews: []
+            friends: []
         }
     }
 
@@ -27,8 +26,7 @@ export default class UpdateTrip extends Component {
             trip_start: trip.trip_start,
             trip_end: trip.trip_end,
             activities: trip.activities,
-            friends: trip.friends,
-            reviews: trip.reviews
+            friends: trip.friends
         })
         } catch (error) {
         console.log(error)
@@ -50,10 +48,10 @@ export default class UpdateTrip extends Component {
     }
 
     render(){
-        const { name, trip_start, trip_end, activities, friends, reviews } = this.state
+        const { name, trip_start, trip_end, activities, friends } = this.state
         return(
-            <div className="">
-                <form className="" onSubmit={this.handleSubmit}>
+            <div className="signup flex-col">
+                <form className="flex-col" onSubmit={this.handleSubmit}>
                     <TextInput 
                     placeholder="Trip Name"
                     name="name"
@@ -82,12 +80,6 @@ export default class UpdateTrip extends Component {
                     placeholder="Friends"
                     name="friends"
                     value={friends}
-                    onChange={this.handleChange}
-                    />
-                    <TextInput 
-                    placeholder="Reviews"
-                    name="reviews"
-                    value={reviews}
                     onChange={this.handleChange}
                     />
                     <button>Update Trip</button>
