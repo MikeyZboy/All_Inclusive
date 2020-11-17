@@ -7,17 +7,18 @@ export default class Profile extends Component {
     constructor() {
         super()
         this.state = {
-            tripFetchError: false,
-            trips: []
+            trips: [],
+            tripFetchError: false
         }
     }
 
     componentDidMount() {
-        this.getTrips()
+        // this.setState({ trips: this.currentUser.trips })
+        this.getUserDetails(this.currentUser)
         console.log(this.state)
     }
 
-    getTrips = async () => {
+    getUserDetails = async (props) => {
         try {
             const profileData = await __GetProfile(this.props.currentUser._id)
             this.setState({ trips: profileData.trips })
@@ -38,10 +39,10 @@ export default class Profile extends Component {
 
     render() {
         return(
-      <div className="">
+      <div className="profile">
         <div>
           {this.state.trips.length ? (
-            <div className="">
+            <div className="profile">
               {this.state.trips.map((trip) => (
                 <div key={trip._id}>
                   <Card

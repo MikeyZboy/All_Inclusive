@@ -23,7 +23,7 @@ handleSubmit = async (e) => {
     e.preventDefault()
     try {
         await __UploadTrip(this.state, this.props.currentUser._id)
-        this.props.history.push(`/create`)
+        this.props.history.push(`/profile`)
         console.log(`${this.props.currentUser._id} created a new trip`)
     } catch (error) {
         console.log(error)
