@@ -53,8 +53,8 @@ render() {
         <div>
           {this.state.friends.length ? (
             <div className="profile">
-              {this.state.friends.map((friend) => (
-                <div key={friend._id}>
+              {this.state.friends.map((friend, name) => (
+                <div key={friend._id} name={name}>
                   <Card
                     onClick={() =>
                       this.props.history.push(`/friends/invite`)
@@ -62,7 +62,7 @@ render() {
                   >
                     <div className="">
                       <div className="">
-                        <h3>{friend.user}</h3>
+                        <h3>{friend.name}</h3>
                         <img alt=""></img>
                       </div>
                     </div>

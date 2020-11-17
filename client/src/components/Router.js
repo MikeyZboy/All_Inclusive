@@ -130,7 +130,7 @@ class Router extends React.Component {
                         currentUser={this.state.currentUser}
                         authenticated={this.state.authenticated}
                         >
-                            <ViewTrip {...props} currentUser={this.state.currentUser}/>
+                            <UpdateTrip {...props} currentUser={this.state.currentUser}/>
                         </Layout>
                         )}
                     />

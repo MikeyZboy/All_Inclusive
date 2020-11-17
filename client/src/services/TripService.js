@@ -20,10 +20,10 @@ export const __GetTrip = async (trip_id) => {
 
 export const __UpdateTrip = async (formData, trip_id) => {
     try {
-        const res = await ApiClient.put(`/trips/${trip_id}`, formData)
+        const res = await ApiClient.put(`/trips/update/${trip_id}`, formData)
         return res.data
     } catch (error){
-        throw error
+        console.log('__UpdateTrip:', error)
     }
 }
 

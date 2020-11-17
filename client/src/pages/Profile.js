@@ -54,7 +54,7 @@ export default class Profile extends Component {
                 <div key={trip._id}>
                   <Card
                     onClick={() =>
-                      this.props.history.push(`/trips/${trip._id}`)
+                      this.props.history.push(`/trips/update/${trip._id}`)
                     }
                   >
                     <div className="">
@@ -65,13 +65,13 @@ export default class Profile extends Component {
                     </div>
                   </Card>
                   <div className="">
-                    <button
+                    {/* <button
                       onClick={() =>
                         this.props.history.push(`/trips/update/${trip._id}`)
                       }
                     >
                       Edit
-                    </button>
+                    </button> */}
                     <button onClick={() => this.DeleteTrip(trip._id)}>
                       Delete
                     </button>

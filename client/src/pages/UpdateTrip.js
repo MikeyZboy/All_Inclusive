@@ -83,6 +83,7 @@ export default class UpdateTrip extends Component {
                     onChange={this.handleChange}
                     />
                     <button>Update Trip</button>
+                    {this.state.formError ? <p>Update Trip Data Error - Try Again</p> : <p></p>}
                 </form>
             </div>
         )
