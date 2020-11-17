@@ -8,8 +8,6 @@ export const __GetTrips = async (page, limit) => {
         throw error
     }
 }
-//this is throwing an error on landingpage load
-
 
 export const __GetTrip = async (trip_id) => {
     try {
@@ -22,7 +20,7 @@ export const __GetTrip = async (trip_id) => {
 
 export const __UpdateTrip = async (formData, trip_id) => {
     try {
-        const res = await ApiClient.put(`/trips/update/${trip_id}`, formData)
+        const res = await ApiClient.put(`/trips/${trip_id}`, formData)
         return res.data
     } catch (error){
         throw error

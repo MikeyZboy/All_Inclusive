@@ -10,7 +10,7 @@ const LandingPage = ({ children }) => {
             <section className="">
                 <div className="">
                     <div className="">
-                        <h3 className="">Travel Planner!</h3>
+                        <h3 className="">Exclusively Inclusives</h3>
                     </div>
                     <div className="">
                     <div className="">

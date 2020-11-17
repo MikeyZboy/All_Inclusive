@@ -1,64 +1,3 @@
-import React, { Component, useReducer } from 'react'
-import { Switch, Route, withRouter } from 'react-router-dom'
-import Home from '../pages/Home'
-import LandingPage from '../pages/LandingPage'
-import Layout from './Layout'
-import Discover from '../pages/Discover'
-import SignUp from '../pages/SignUp'
-import SignIn from '../pages/SignIn'
-import CreateTrip from '../pages/CreateTrip'
-import Profile from '../pages/Profile'
-import UpdateTrip from '../pages/UpdateTrip'
-import ViewTrip from '../pages/ViewTrip'
-import ProtectedRoute from './ProtectedRoute'
-import Nav from './Nav'
-import Friends from '../pages/Friends'
-import { __CheckSession } from '../services/UserService'
-
-class Router extends React.Component {
-    constructor() {
-        super() 
-        this.state = {
-            authenticated: false,
-            currentUser: null,
-            pageLoading: true
-        }
-    }
-
-    verifyTokenValid = async () => {
-        const token = localStorage.getItem('token')
-            if (token) {
-                try {
-                const session = await __CheckSession()
-                this.setState(
-                    {
-                        currentUser: session,
-                        authenticated: true
-                    },
-                    () => this.props.history.push('/profile')
-                )
-            } catch (error) {
-                this.setState({ currentUser: null, authenticated: false })
-                localStorage.clear()
-            }
-        }
-    }
-    
-    toggleAuthenticated =  (value, user, done) => {
-        this.setState({authenticated: value, currentUser: user}, () => done())
-    }
-
-    componentDidMount() {
-        this.verifyTokenValid()
-        this.setState({ pageLoading: false })
-    }
-
-    render(){
-        return(
-            <main>
-                {this.state.pageLoading ? (
-                    <h3>Loading...</h3>
-                ):(
                 <Switch>
                     <Route 
                     exact 
@@ -78,13 +17,13 @@ class Router extends React.Component {
                     )}
                     />
                     <Route
-                    path="/discover"
+                    path="/trips"
                     component={(props) => (
                         <Layout
                         currentUser={this.state.currentUser}
                         authenticated={this.state.authenticated}
                         >
-                            <Discover {...props}/>
+                            <Trips {...props}/>
                         </Layout>
                     )}
                     />
@@ -136,7 +75,19 @@ class Router extends React.Component {
                     />
                     <ProtectedRoute
                     authenticated={this.state.authenticated}
-                    path="/update/:trip_id"
+                    path="/friends"
+                    component={(props) => (
+                        <Layout
+                        currentUser={this.state.currentUser}    
+                        authenticated={this.state.authenticated}
+                        >
+                            <Friends {...props} currentUser={this.state.currentUser}/>
+                        </Layout>
+                    )}
+                    />
+                    <ProtectedRoute
+                    authenticated={this.state.authenticated}
+                    path="/trips/update/:trip_id"
                     component={(props) => (
                         <Layout 
                         currentUser={this.state.currentUser}
@@ -148,7 +99,7 @@ class Router extends React.Component {
                     />
                     <ProtectedRoute
                     authenticated={this.state.authenticated}
-                    path="/friends"
+                    path="/friends/invite"
                     component={(props) => (
                         <Layout
                         currentUser={this.state.currentUser}    
@@ -159,10 +110,3 @@ class Router extends React.Component {
                     )}
                     />
                 </Switch>
-                )}
-            </main>
-        )
-    }
-}
-
-export default withRouter(Router)

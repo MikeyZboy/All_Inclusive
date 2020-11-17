@@ -41,18 +41,8 @@ const GetProfile = async (req,res) => {
         const userData = await User.findOne({_id: req.params.user_id}).populate([
             {model: 'trips',
             path:'trips'
-        },
-        {
-          path: 'users',
-          populate: {
-              model: 'users',
-              path: 'friends',
-              select: '_id name'
-          }  
-        }    
-        ])
+        }])
         //can I do friends here too with populate?
-        console.log("UserController: UserData:", userData)
         res.send(userData)
     } catch (error) {
         console.log('Get Profile Error')

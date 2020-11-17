@@ -39,7 +39,7 @@ export default class Friends extends Component {
 
 
 render() {
-    //const { user_id } = this.state
+    const { friends } = this.state
     return(
         <div className="profile">
                 <div>
@@ -51,18 +51,18 @@ render() {
                   </button>
                 </div>
         <div>
-          {this.state.friends.length ? (
+          {friends.length ? (
             <div className="profile">
-              {this.state.friends.map((friend) => (
-                <div key={friend._id}>
+              {this.state.users.map((user) => (
+                <div key={user._id}>
                   <Card
                     onClick={() =>
-                      this.props.history.push(`/trips/update`)
+                      this.props.history.push(`/friends/invite`)
                     }
                   >
                     <div className="">
                       <div className="">
-                        <h3>{friend.name}</h3>
+                        <h3>{this.props.currentUser.friends._id}</h3>
                         <img alt=""></img>
                       </div>
                     </div>
