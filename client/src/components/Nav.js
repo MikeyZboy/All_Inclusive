@@ -6,7 +6,7 @@ const Nav = ( { authenticated, currentUser, className }) => {
     return authenticated && currentUser ? 
     (
         <header className="newnav">
-            <div className="">Welcome Back {currentUser.name}</div>
+            <div className="">Welcome Back <NavLink activeClassName="nav-active" to="/profile">{currentUser.name}</NavLink></div>
             <nav>
                 <NavLink activeClassName="nav-active" to="/friends">Friends</NavLink>
                 <NavLink activeClassName="nav-active" to="/trips">Trips</NavLink>

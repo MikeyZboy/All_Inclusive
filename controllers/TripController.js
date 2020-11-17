@@ -35,6 +35,13 @@ const GetTripById = async (req, res) => {
 const CreateTrip = async (req, res) => {
     const newTrip = new Trip ({...req.body, user_id: req.params.user_id})
     newTrip.save()
+    await User.findByIdAndUpdate(req.params.user_id, {
+        $push: {
+            trips: newTrip
+        }
+    }, {
+        upsert: true, new: true
+    })
     res.send(newTrip)
 }
 
