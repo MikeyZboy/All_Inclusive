@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { __GetTrip } from '../services/TripService'
-import Card from '../components/Card'
 import UpdateTrip from './UpdateTrip'
 
 export default class ViewTrip extends Component {
@@ -13,7 +11,7 @@ export default class ViewTrip extends Component {
     }
 
     componentDidMount() {
-        console.log(this.state)
+        console.log('ViewTrip:',this.state)
     }
 
     getTrip = async () => {
