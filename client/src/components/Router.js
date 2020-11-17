@@ -12,6 +12,7 @@ import UpdateTrip from '../pages/UpdateTrip'
 import ViewTrip from '../pages/ViewTrip'
 import ProtectedRoute from './ProtectedRoute'
 import Nav from './Nav'
+import Friends from '../pages/Friends'
 import { __CheckSession } from '../services/UserService'
 
 class Router extends React.Component {
@@ -144,7 +145,19 @@ class Router extends React.Component {
                             <UpdateTrip {...props} currentUSer={this.state.currentUser}/> 
                         </Layout>
                     )}
-                    />    
+                    />
+                    <ProtectedRoute
+                    authenticated={this.state.authenticated}
+                    path="/friends"
+                    component={(props) => (
+                        <Layout
+                        currentUser={this.state.currentUser}    
+                        authenticated={this.state.authenticated}
+                        >
+                            <Friends {...props} currentUser={this.state.currentUser}/>
+                        </Layout>
+                    )}
+                    />
                 </Switch>
                 )}
             </main>

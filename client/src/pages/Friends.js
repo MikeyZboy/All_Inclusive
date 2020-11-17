@@ -1,65 +1,68 @@
 import React, { Component } from 'react'
-import { __DeleteTrip } from '../services/TripService'
-import { __GetProfile } from '../services/UserService'
 import Card from '../components/Card'
+import { __GetProfile } from "../services/UserService"
 
-export default class Profile extends Component {
+
+export default class Friends extends Component {
     constructor() {
         super()
         this.state = {
-            trips: [],
-            tripFetchError: false
+            friends: [],
+            friendFetchError: false
         }
     }
 
     componentDidMount() {
-        this.getTrips(this.currentUser)
+        this.getFriends(this.currentUser)
         console.log(this.state)
     }
 
-    getTrips = async (props) => {
+    getFriends = async (props) => {
         try {
             const profileData = await __GetProfile(this.props.currentUser._id)
-            this.setState({ trips: profileData.trips })
+            this.setState({ friends: profileData.friends })
         } catch (error) {
-            this.setState({ tripFetchError: true })
+            this.setState({ friendFetchError: true })
         }
     }
 
-    deleteTrip = async (id) => {
+    removeFriend = async (id) => {
         try {
-            const tripsToKeep = this.state.trips.filter((trip) => trip._id !== id)
-            this.setState({ trips: tripsToKeep })
-            await __DeleteTrip(id)
+            const friendsToKeep = this.state.friends.filter((friend) => friend._id !== id)
+            this.setState({ friends: friendsToKeep })
+            //await __DeleteTrip(id)
+            // we dont have a remove friend yet...
         } catch (error) {
             console.log(error)
         }
     }
 
-    render() {
-        return(
-      <div className="profile">
+
+render() {
+    const { friends } = this.state
+    return(
+        <div className="profile">
                 <div>
                   <button
                     onClick={() =>
-                    this.props.history.push(`/trips/create`)
+                    this.props.history.push(`/friends/invite`)
                     }
-                    >Plan another trip!
+                    >Invite People!
                   </button>
                 </div>
         <div>
-          {this.state.trips.length ? (
+          {friends.length ? (
             <div className="profile">
-              {this.state.trips.map((trip) => (
-                <div key={trip._id}>
+              {this.state.users.map((user) => (
+                <div key={user._id}>
                   <Card
                     onClick={() =>
-                      this.props.history.push(`/trips/${trip._id}`)
+                      this.props.history.push(`/friends/invite`)
                     }
                   >
                     <div className="">
                       <div className="">
-                        <h3>{trip.name}</h3>
+                        <h3>{this.props.currentUser.friends._id}</h3>
                         <img alt=""></img>
                       </div>
                     </div>
@@ -67,13 +70,10 @@ export default class Profile extends Component {
                   <div className="">
                     <button
                       onClick={() =>
-                        this.props.history.push(`/trips/update/${trip._id}`)
+                        this.props.history.push(`/friends/invite`)
                       }
                     >
-                      Edit
-                    </button>
-                    <button onClick={() => this.DeleteTrip(trip._id)}>
-                      Delete
+                      Invite
                     </button>
                   </div>
               </div>
@@ -83,9 +83,9 @@ export default class Profile extends Component {
             <div className="">
               <button
                 onClick={() =>
-                  this.props.history.push(`/trips/create`)
+                  this.props.history.push(`/friends/invite`)
               }
-              >Plan your first trip!
+              >Make some friends!
               </button>
             </div>
           )}
@@ -93,4 +93,11 @@ export default class Profile extends Component {
       </div>
         )
     }
+    
 }
+
+
+
+                    // <button onClick={() => this.__DeleteTrip(trip._id)}>
+                    //   Delete
+                    // </button>

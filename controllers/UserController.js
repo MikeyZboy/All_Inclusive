@@ -42,6 +42,7 @@ const GetProfile = async (req,res) => {
             {model: 'trips',
             path:'trips'
         }])
+        //can I do friends here too with populate?
         res.send(userData)
     } catch (error) {
         console.log('Get Profile Error')

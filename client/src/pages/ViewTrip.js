@@ -12,7 +12,7 @@ export default class ViewTrip extends Component {
     }
 
     componentDidMount() {
-
+        console.log(this.state)
     }
 
     getTrip = async () => {
