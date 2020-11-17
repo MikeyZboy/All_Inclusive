@@ -4,7 +4,7 @@ const { User, Trip, Review } = require('../db/schema')
 const GetTrips = async (req, res) => {
     const { page, limit } = req.body
     const offset = page === '1' ? '0' : Math.floor(parseInt(page) * parseInt(limit))
-    const trips = await Trip.find()
+    const trips = await Trip.findbyId(req.params.user_id)
         .limit(parseInt(limit))
         .skip(offset)
         .sort({ trip_start: 'ascending'})

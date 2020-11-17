@@ -3,7 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import Home from '../pages/Home'
 import LandingPage from '../pages/LandingPage'
 import Layout from './Layout'
-import Discover from '../pages/Discover'
+import Trips from '../pages/Trips'
 import SignUp from '../pages/SignUp'
 import SignIn from '../pages/SignIn'
 import CreateTrip from '../pages/CreateTrip'
@@ -78,13 +78,13 @@ class Router extends React.Component {
                     )}
                     />
                     <Route
-                    path="/discover"
+                    path="/trips"
                     component={(props) => (
                         <Layout
                         currentUser={this.state.currentUser}
                         authenticated={this.state.authenticated}
                         >
-                            <Discover {...props}/>
+                            <Trips {...props}/>
                         </Layout>
                     )}
                     />
@@ -136,7 +136,19 @@ class Router extends React.Component {
                     />
                     <ProtectedRoute
                     authenticated={this.state.authenticated}
-                    path="/update/:trip_id"
+                    path="/friends"
+                    component={(props) => (
+                        <Layout
+                        currentUser={this.state.currentUser}    
+                        authenticated={this.state.authenticated}
+                        >
+                            <Friends {...props} currentUser={this.state.currentUser}/>
+                        </Layout>
+                    )}
+                    />
+                    <ProtectedRoute
+                    authenticated={this.state.authenticated}
+                    path="/trips/update/:trip_id"
                     component={(props) => (
                         <Layout 
                         currentUser={this.state.currentUser}
@@ -148,7 +160,7 @@ class Router extends React.Component {
                     />
                     <ProtectedRoute
                     authenticated={this.state.authenticated}
-                    path="/friends"
+                    path="/friends/invite"
                     component={(props) => (
                         <Layout
                         currentUser={this.state.currentUser}    
