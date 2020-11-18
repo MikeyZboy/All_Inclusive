@@ -13,6 +13,7 @@ import ViewTrip from '../pages/ViewTrip'
 import ProtectedRoute from './ProtectedRoute'
 import Nav from './Nav'
 import Friends from '../pages/Friends'
+import CreateFriend from '../pages/CreateFriend'
 import { __CheckSession } from '../services/UserService'
 
 class Router extends React.Component {
@@ -155,6 +156,18 @@ class Router extends React.Component {
                         authenticated={this.state.authenticated}
                         >
                             <Friends {...props} currentUser={this.state.currentUser}/>
+                        </Layout>
+                    )}
+                    />
+                    <ProtectedRoute 
+                    authenticated={this.state.authenticated}
+                    path="/friends/create"
+                    component={(props) => (
+                        <Layout
+                        currentUser={this.state.currentUser}
+                        authenticated={this.state.authenticated}
+                        >
+                            <CreateFriend {...props} currentUser={this.state.currentUser}/>
                         </Layout>
                     )}
                     />
