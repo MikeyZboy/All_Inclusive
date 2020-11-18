@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { __GetTrips } from '../services/TripService'
+import { __GetPlaces, __GetPlaceById } from '../services/PlaceService'
 import Card from '../components/Card'
 import '../styles/discover.css'
 
@@ -7,96 +8,58 @@ export default class Discover extends Component {
     constructor() {
         super()
         this.state = {
-            trips: []
+            places: []
         }
     }
 
     componentDidMount() {
-        this.loadTrips()
+        this.loadPlaces()
     }
 
-    loadTrips = async () => {
-        const trips = await __GetTrips()
-        console.log(trips)
-        this.setState({ trips: trips })
+    loadPlaces = async () => {
+        const places = await __GetPlaces()
+        console.log(places)
+        this.setState({ places: places })
     }
-
-    // render(){
-    //     return(
-    //         <div className="">
-    //             <div className="">
-    //                 {this.state.trips.map((trip) => {
-    //                     return (
-    //                     <Card key={trip.id}>
-    //                         <div className="">
-    //                             <div className="">
-    //                                 <div className="">
-    //                                     <h3>{trip.name}</h3>
-    //                                     <p></p>
-    //                                 </div>
-    //                                 <div className="">
-    //                                     <div className="">
-    //                                         <p>Friends</p>
-    //                                         <p>{trip.users.length}</p>
-    //                                     </div>
-    //                                     <div className="">
-    //                                     <p>Activities</p>
-    //                                     <p>{trip.activities.length}</p>
-    //                                     </div>
-    //                                 </div>
-    //                             </div>
-    //                         </div>
-    //                         <img src={trip.image_url} alt="location_image" />
-    //                     </Card>
-    //                     )
-    //                 })}
-    //             </div>
-    //         </div>
-    //     )
-    // }
 
     render(){
         return (
-            <div className="">             
-            <section className="card-wrapper flex-row">
-                <Card>
-                <div className="mask flex-col">
-                   <div className="card-content">
-                    <h3>Mexico</h3>
-                    <p>Hotels from $35/night</p>
-                    </div> 
-                </div>
-                 <img
-                    src="https://images.pexels.com/photos/2227774/pexels-photo-2227774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    alt="Sunset in pool of Mexican resort"
-                    />
-                </Card>
-                <Card>
-                    <div className="mask flex-col">
-                        <div className="card-content">
-                        <h3>Greece</h3>
-                        <p>Hotels starting at $145/night</p>
-                        </div>
+            <div className="">
+            {this.state.places.length ? (
+            <div className="flex-row">
+              {this.state.places.map((place) => (
+                <div key={place._id}>
+                  <Card
+                    onClick={() =>
+                      this.props.history.push(`/places/${place._id}`)
+                    }
+                  >
+                    <div className="">
+                      <div className="">
+                        <h3>{place.name}</h3>
+                        <img src={place.image_url}alt="random"></img>
+                      </div>
                     </div>
-                    <img
-                    src="https://media.vanityfair.com/photos/56cc5268ae46dea861df1599/master/w_1600%2Cc_limit/dam-culture-whereigo-2012-08-john-stamos-john-stamos-01.png"
-                    alt="Greek island rooftops overlooking sea"
-                    />
-                </Card>
-                <Card>
-                    <div className="mask flex-col">
-                        <div className="card-content">
-                        <h3>Maldives</h3>
-                        <p>Hotels starting at $215/night</p>
-                        </div>
-                    </div>
-                    <img 
-                    src="https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-                    alt="Floating hotel rooms in Maldives"
-                    />
-                </Card>
-            </section>
+                  </Card>
+                  <div className="">
+                    <button
+                      onClick={() =>
+                        this.props.history.push(`/profile`)
+                      }
+                    >
+                      Add this to your Profile!
+                    </button>
+                  </div>
+              </div>
+              ))}
             </div>
-        )
+            ) : (
+            <div>
+                <h3>Loading Places To Explore...</h3>
+            </div>
+            )
+            }
+    </div>
+    )
     }
 }
