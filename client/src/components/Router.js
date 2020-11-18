@@ -124,7 +124,7 @@ class Router extends React.Component {
                     />
                     <ProtectedRoute
                     authenticated={this.state.authenticated}
-                    path="/trips/:trip_id"
+                    path="/trips/update/:trip_id"
                     component={(props) => (
                         <Layout 
                         currentUser={this.state.currentUser}

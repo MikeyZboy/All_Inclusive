@@ -46,7 +46,7 @@ const CreateTrip = async (req, res) => {
 }
 
 const UpdateTrip = async (req, res) => {
-    const newTrip = new Trip ({...req.body, user_id: req.params.user_id} )
+    const newTrip = new Trip ({...req.body, trip_id: req.params.trip_id} )
     try { 
         await Trip.findByIdAndUpdate(
             req.params.trip_id,
@@ -56,9 +56,12 @@ const UpdateTrip = async (req, res) => {
         }, {
             upsert:true, new: true, useFindAndModify: false
         })
+        console.log(newTrip)
+        newTrip.save()
         res.send(newTrip)
         } catch (err) {
-        (err, (d) => (err ? err: res.send(d)))
+        throw err
+            // (err, (d) => (err ? err: res.send(d)))
         }
 }
 
@@ -66,9 +69,6 @@ const DeleteTrip = async (req, res) => {
     await Trip.deleteOne({_id: req.params.trip_id})
     res.send({msg:`Trip Deleted`})
 }
-
-//Invite Trip would be a stretch here - add other users to trip is the goal
-
 
 module.exports = {
     GetTrips,

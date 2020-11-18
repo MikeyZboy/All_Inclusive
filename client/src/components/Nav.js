@@ -8,8 +8,9 @@ const Nav = ( { authenticated, currentUser, className }) => {
         <header className="newnav">
             <div className="">Welcome Back <NavLink activeClassName="nav-active" to="/profile">{currentUser.name}</NavLink></div>
             <nav>
+                <NavLink activeClassName="nav-active" to="/discover">Discover</NavLink>
+                <NavLink activeClassName="nav-active" to="/profile">Upcoming Trips</NavLink>
                 <NavLink activeClassName="nav-active" to="/friends">Friends</NavLink>
-                <NavLink activeClassName="nav-active" to="/trips">Trips</NavLink>
                 <NavLink activeClassName="nav-active" to="/" onClick={() => localStorage.clear()}>Sign Out</NavLink>
             </nav>
         </header>
@@ -19,7 +20,6 @@ const Nav = ( { authenticated, currentUser, className }) => {
             <nav>
                 <NavLink activeClassName="nav-active" to="/discover">Discover</NavLink>
                 <NavLink activeClassName="nav-active" to="/login">Sign In</NavLink>
-                <NavLink activeClassName="nav-active" exact to="/">Home</NavLink>
             </nav>
         </header>
     )

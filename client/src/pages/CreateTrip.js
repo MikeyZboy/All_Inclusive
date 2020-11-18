@@ -35,7 +35,7 @@ handleClick = async (e) => {
 }
 
 render(){
-    const { name, trip_start, trip_end, friend, hotel, activity } = this.state
+    const { name, trip_start, trip_end, hotel, activity } = this.state
     return(
         <div className="signin flex-col">
             <form className="" onSubmit={this.handleSubmit}>
@@ -67,12 +67,6 @@ render(){
                 placeholder="What do you want to do?"
                 name="activity"
                 value={activity}
-                onChange={this.handleChange}
-                />
-                <TextInput 
-                placeholder="Who do you want to invite?"
-                name="friend"
-                value={friend}
                 onChange={this.handleChange}
                 />
             <button onSubmit={this.handleSubmit}>Create Trip!</button>

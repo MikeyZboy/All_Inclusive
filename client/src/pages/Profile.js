@@ -13,8 +13,7 @@ export default class Profile extends Component {
     }
 
     componentDidMount() {
-        this.getTrips(this.currentUser)
-        console.log(this.state)
+        this.getTrips()
     }
 
     getTrips = async (props) => {
@@ -49,12 +48,12 @@ export default class Profile extends Component {
                 </div>
         <div>
           {this.state.trips.length ? (
-            <div className="profile">
+            <div className="flex-row">
               {this.state.trips.map((trip) => (
                 <div key={trip._id}>
                   <Card
                     onClick={() =>
-                      this.props.history.push(`/trips/${trip._id}`)
+                      this.props.history.push(`/trips/update/${trip._id}`)
                     }
                   >
                     <div className="">

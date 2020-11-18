@@ -38,5 +38,3 @@ export const __CheckSession = async () => {
     }
 }
 
-// think i need an AddFriend and RemoveFriend function for Friends.js...
-

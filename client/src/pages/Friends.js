@@ -8,56 +8,61 @@ export default class Friends extends Component {
         super()
         this.state = {
             friends: [],
+            trips: [],
             friendFetchError: false
         }
     }
 
     componentDidMount() {
-        this.getFriends(this.currentUser)
+        this.getFriendsData(this.currentUser)
         console.log(this.state)
     }
 
-    getFriends = async (props) => {
+    getFriendsData = async (props) => {
         try {
             const profileData = await __GetProfile(this.props.currentUser._id)
-            this.setState({ friends: profileData.friends })
+            this.setState({ friends: profileData.friends, trips: profileData.trips })
         } catch (error) {
             this.setState({ friendFetchError: true })
         }
     }
 
+    
     removeFriend = async (id) => {
         try {
             const friendsToKeep = this.state.friends.filter((friend) => friend._id !== id)
             this.setState({ friends: friendsToKeep })
-            //await __DeleteTrip(id)
-            // we dont have a remove friend yet...
         } catch (error) {
             console.log(error)
         }
     }
 
+/* TODO 
+    - addFriendToFriends
+
+    - addFriendToTrip
+*/
+
 
 render() {
-    //const { friends } = this.state
     return(
         <div className="profile">
                 <div>
                   <button
                     onClick={() =>
-                    this.props.history.push(`/friends/invite`)
+                    this.props.history.push(`/friends/create`)
                     }
-                    >Invite People!
+                    >Make Some Friends!
                   </button>
                 </div>
         <div>
           {this.state.friends.length ? (
-            <div className="profile">
-              {this.state.friends.map((friend, name) => (
-                <div key={friend._id} name={name}>
+            <div className="flex-row">
+              {this.state.friends.map((friend, trip) => (
+                <div key={friend._id} trip={trip}>
                   <Card
                     onClick={() =>
-                      this.props.history.push(`/friends/invite`)
+                      this.props.history.push(`/friends/invite/${trip._id}`)
                     }
                   >
                     <div className="">
@@ -73,9 +78,12 @@ render() {
                         this.props.history.push(`/friends/invite`)
                       }
                     >
-                      Invite
+                      Invite to Trip
                     </button>
                   </div>
+                  <button onClick={() => this.removeFriend(friend._id)}>
+                      Uninvite to Trip
+                    </button>
               </div>
               ))}
             </div>
@@ -95,9 +103,3 @@ render() {
     }
     
 }
-
-
-
-                    // <button onClick={() => this.__DeleteTrip(trip._id)}>
-                    //   Delete
-                    // </button>
