@@ -26,6 +26,3 @@ const Nav = ( { authenticated, currentUser, className }) => {
 }
 
 export default Nav
-
-//{ authenticated, currentUser, className }
-/* <NavLink activeClassName="nav-active" to="/register">Sign Up</NavLink> */

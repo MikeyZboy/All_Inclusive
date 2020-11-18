@@ -30,10 +30,6 @@ handleSubmit = async (e) => {
     }
 }
 
-handleClick = async (e) => {
-//this may not be necessary...
-}
-
 render(){
     const { name, trip_start, trip_end, hotel, activity } = this.state
     return(

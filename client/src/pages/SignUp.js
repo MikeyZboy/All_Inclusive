@@ -12,9 +12,7 @@ export default class Signup extends Component {
             password: ''
         }
     }
-   
-    // componentDidMount()
-
+    
     handleChange = ({ target }) => {
         this.setState({ [target.name]: target.value })
         console.log(this.state)

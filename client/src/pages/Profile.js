@@ -48,7 +48,7 @@ export default class Profile extends Component {
                 </div>
         <div>
           {this.state.trips.length ? (
-            <div className="flex-row">
+            <div className="card flex-row">
               {this.state.trips.map((trip) => (
                 <div key={trip._id}>
                   <Card

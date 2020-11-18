@@ -34,7 +34,6 @@ export default class UpdateTrip extends Component {
     }
 
     handleChange = ({ target }) => {
-        console.log(target.name, target.value)
         this.setState({ [target.name]: target.value })
     }
 
@@ -42,7 +41,6 @@ export default class UpdateTrip extends Component {
         e.preventDefault()
         try {
             await __UpdateTrip(this.state, this.props.match.params.trip_id)
-            console.log('await__UpdateTrip',this.props.match.params.trip_id)
             this.props.history.push('/profile')
         } catch (error) {
             throw error
@@ -85,13 +83,8 @@ export default class UpdateTrip extends Component {
                     onChange={this.handleChange}
                     />
                     <button>Update Trip</button>
-                    {/* {this.state.formError ? <p>Update Trip Data Error - Try Again</p> : <p></p>} */}
                 </form>
             </div>
         )
     }
-
-
 }
-
-// onClick={()=> this.props.history.push(`/profile`)}

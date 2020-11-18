@@ -3,7 +3,6 @@ import ApiClient from './ApiClient'
 export const __GetProfile = async (user_id) => {
     try {
         const res = await ApiClient.get(`/users/${user_id}`)
-        console.log(res.data)
         return res.data
     } catch (error){
         throw error
@@ -22,7 +21,6 @@ export const __RegisterUser = async (formData) => {
 export const __LoginUser = async (userData) => {
     try {
         const res = await ApiClient.post(`/users/login`, userData)
-        console.log(res.data)
         return res.data
     } catch (error) {
         throw error

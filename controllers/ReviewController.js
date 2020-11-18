@@ -2,7 +2,6 @@ const { Trip, Review } = require('../db/schema')
 
 const GetReview = async (req, res) => {
     const review = await Review.findById(req.params.review_id).select('comment')
-    console.log({msg: `did it work?`})
     res.json(review)
 }
 
@@ -19,7 +18,6 @@ const CreateReview = async (req, res) => {
     )
     res.send(review)
 }
-//this is based off of mern-stack CreateComment...may need tweaking at the _id: req.params.trip_id
 
 const UpdateReview = async (req, res) => {
     await Review.findByIdAndUpdate(

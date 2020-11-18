@@ -21,40 +21,6 @@ export default class Discover extends Component {
         this.setState({ trips: trips })
     }
 
-    // render(){
-    //     return(
-    //         <div className="">
-    //             <div className="">
-    //                 {this.state.trips.map((trip) => {
-    //                     return (
-    //                     <Card key={trip.id}>
-    //                         <div className="">
-    //                             <div className="">
-    //                                 <div className="">
-    //                                     <h3>{trip.name}</h3>
-    //                                     <p></p>
-    //                                 </div>
-    //                                 <div className="">
-    //                                     <div className="">
-    //                                         <p>Friends</p>
-    //                                         <p>{trip.users.length}</p>
-    //                                     </div>
-    //                                     <div className="">
-    //                                     <p>Activities</p>
-    //                                     <p>{trip.activities.length}</p>
-    //                                     </div>
-    //                                 </div>
-    //                             </div>
-    //                         </div>
-    //                         <img src={trip.image_url} alt="location_image" />
-    //                     </Card>
-    //                     )
-    //                 })}
-    //             </div>
-    //         </div>
-    //     )
-    // }
-
     render(){
         return (
             <div className="">             

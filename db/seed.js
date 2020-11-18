@@ -1,10 +1,7 @@
-// need to install Faker before seeding with fake data...
 const faker = require('faker')
 const connection = require('./connection')
 const { Types } = require('mongoose')
 const { User, Trip, Review, Activity, Hotel, Place } = require('./schema')
-// const Activities = require('./models/Activities')
-// above should also fake data for places and activities?
 
 const users = new Array(10).fill().map(() => ({
   _id: Types.ObjectId(),
@@ -19,7 +16,6 @@ const reviews = new Array(10).fill().map(() => ({
   comment: faker.lorem.sentences(),
   popularity_rating: faker.random.number(),
   user_id: users[Math.floor(Math.random() * users.length)]._id
-  // should this also include places+activities?
 }))
 
 

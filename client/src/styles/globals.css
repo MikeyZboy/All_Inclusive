@@ -36,7 +36,7 @@ form textarea {
   padding: 0.8em 0.5em;
   transition: all 0.2s;
   font-size: 1.3rem;
-  font-family: 'Open Sans';
+  font-family: 'Montserrat';
 }
 
 input:active,
@@ -96,7 +96,7 @@ li {
   position: relative;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: #eee;
+  color: #4DCEE8;
   margin-right: 2em;
 }
 
@@ -110,7 +110,7 @@ li {
 
 .card h3 {
   font-size: 1.3rem;
-  color: #eee;
+  color:lightgray;
   margin: 0;
   font-weight: 700;
 }
@@ -132,7 +132,7 @@ li {
 
 .card .card-content {
   width: 90%;
-  /* padding-left: 1em; */
+  padding-left: 1em;
   padding: 0.2em 1em;
 }
 

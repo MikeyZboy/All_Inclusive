@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
-//import { } from '../services/FriendService'
 import { __RegisterUser } from '../services/UserService' 
 
 export default class CreateFriend extends Component {
@@ -24,20 +23,16 @@ handleSubmit = async (e, formData) => {
     try{
         const newFriend = await __RegisterUser(formData)
         console.log(newFriend)
-        // newFriend.save()
+        newFriend.save()
     }catch (error) {
         throw error
     }
 }
 
-
-//handleClick = async () => {}
-//may not be necessary
-
 render(){
     const { friend } = this.state
     return(
-        <div className="signin flex-col">
+        <div className="signup flex-col">
             <form className="" onSubmit={this.handleSubmit}>
                 <TextInput
                 placeholder="Friend's Name"
@@ -55,14 +50,4 @@ render(){
         </div>
     )
 }
-
-
-
-
-
-
-
-
-
-
 }

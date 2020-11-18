@@ -21,7 +21,6 @@ export const __GetTrip = async (trip_id) => {
 export const __UpdateTrip = async (formData, trip_id) => {
     try {
         const res = await ApiClient.put(`/trips/update/${trip_id}?active=true`, formData)
-        console.log('__UpdateTrip',res.data)
         return res.data
     } catch (error){
         console.log('__UpdateTrip:', error)
@@ -29,10 +28,8 @@ export const __UpdateTrip = async (formData, trip_id) => {
 }
 
 export const __UploadTrip = async (formData, user_id) => {
-    console.log('we at least got here')
     try {
         const res = await ApiClient.post(`/trips/create/${user_id}`, formData)
-        console.log(res.data, formData)
         return res.data
     } catch (error){
         console.log(`failed to add trip`, formData)

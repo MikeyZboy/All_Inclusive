@@ -27,7 +27,6 @@ export default class Friends extends Component {
         }
     }
 
-    
     removeFriend = async (id) => {
         try {
             const friendsToKeep = this.state.friends.filter((friend) => friend._id !== id)
@@ -36,13 +35,6 @@ export default class Friends extends Component {
             console.log(error)
         }
     }
-
-/* TODO 
-    - addFriendToFriends
-
-    - addFriendToTrip
-*/
-
 
 render() {
     return(
@@ -58,15 +50,15 @@ render() {
         <div>
           {this.state.friends.length ? (
             <div className="flex-row">
-              {this.state.friends.map((friend, trip) => (
-                <div key={friend._id} trip={trip}>
+              {this.state.friends.map((friend, trip, name) => (
+                <div key={friend._id} trip={trip} name={name}>
                   <Card
                     onClick={() =>
                       this.props.history.push(`/friends/invite/${trip._id}`)
                     }
                   >
-                    <div className="">
-                      <div className="">
+                    <div className="card">
+                      <div className="card content">
                         <h3>{friend.name}</h3>
                         <img alt=""></img>
                       </div>
@@ -101,5 +93,4 @@ render() {
       </div>
         )
     }
-    
 }

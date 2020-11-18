@@ -1,5 +1,4 @@
-const Reviews = require('../db/models/Reviews')
-const { User, Trip, Review } = require('../db/schema')
+const { User, Trip } = require('../db/schema')
 
 const GetTrips = async (req, res) => {
     const { page, limit } = req.body
@@ -10,8 +9,6 @@ const GetTrips = async (req, res) => {
         .sort({ trip_start: 'ascending'})
     res.send({ results: trips.length, trips })
 }
-//gettrips needs to be filtered to the user...
-// trip.findbyid(req.params.user_id)?
 
 const GetTripById = async (req, res) => {
     const trip = await Trip.findById(req.params.trip_id).populate([

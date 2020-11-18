@@ -3,6 +3,7 @@ import { __GetTrips } from '../services/TripService'
 import { __GetPlaces, __GetPlaceById } from '../services/PlaceService'
 import Card from '../components/Card'
 import '../styles/discover.css'
+import TextInput from '../components/TextInput'
 
 export default class Discover extends Component {
     constructor() {
@@ -24,7 +25,14 @@ export default class Discover extends Component {
 
     render(){
         return (
-            <div className="">
+            
+            <div className="home content-wrapper flex-col">
+              <div className="content flex-col">
+                  <form>
+                    <TextInput name="search" type="search" placeholder="Find New Places" />
+                  </form>
+            
+            <div className="discover card flex-col">
             {this.state.places.length ? (
             <div className="flex-row">
               {this.state.places.map((place) => (
@@ -33,7 +41,7 @@ export default class Discover extends Component {
                     onClick={() =>
                       this.props.history.push(`/places/${place._id}`)
                     }
-                  >
+                    >
                     <div className="">
                       <div className="">
                         <h3>{place.name}</h3>
@@ -46,7 +54,7 @@ export default class Discover extends Component {
                       onClick={() =>
                         this.props.history.push(`/profile`)
                       }
-                    >
+                      >
                       Add this to your Profile!
                     </button>
                   </div>
@@ -54,11 +62,13 @@ export default class Discover extends Component {
               ))}
             </div>
             ) : (
-            <div>
+              <div>
                 <h3>Loading Places To Explore...</h3>
             </div>
             )
-            }
+          }
+          </div>
+        </div>
     </div>
     )
     }
