@@ -77,7 +77,7 @@ class Router extends React.Component {
                     )}
                     />
                     <Route
-                    path="/discover"
+                    path="/places"
                     component={(props) => (
                         <Layout
                         currentUser={this.state.currentUser}

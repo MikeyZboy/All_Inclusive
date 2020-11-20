@@ -19,11 +19,11 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.disable('X-Powered-By')
 
 
+app.use('/api', AppRouter)
 app.get('*', (req, res) =>
-res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 )
 
-app.use('/api', AppRouter)
 app.listen(PORT, async () => {
     try {
         await connection

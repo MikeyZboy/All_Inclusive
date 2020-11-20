@@ -35,7 +35,7 @@ export default class Discover extends Component {
             <div className="discover card flex-col">
             {this.state.places.length ? (
             <div className="flex-row">
-              {this.state.places.map((place) => (
+              {this.state.places.forEach((place) => (
                 <div key={place._id}>
                   <Card
                     onClick={() =>
@@ -55,7 +55,7 @@ export default class Discover extends Component {
                         this.props.history.push(`/profile`)
                       }
                       >
-                      Add this to your Profile!
+                      Add this to your Upcoming Trips!
                     </button>
                   </div>
               </div>

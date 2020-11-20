@@ -2,7 +2,7 @@ import ApiClient from './ApiClient'
 
 export const __GetPlaces = async (page, limit) => {
     try { 
-        const res = await ApiClient.get(`/places?page${page || 1}&limit=${limit || 5}`)
+        const res = await ApiClient.get(`/places/all`)
         return res.data
     } catch (error) {
         throw error
