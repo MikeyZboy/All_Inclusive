@@ -4,6 +4,7 @@
   "main": "index.js",
   "author": "Mike Zahuta",
   "license": "MIT",
+  "proxy": "http://localhost:5000",
   "nodemonConfig": {
     "ignore": [
       "client/"

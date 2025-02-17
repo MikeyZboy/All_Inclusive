@@ -1,14 +1,26 @@
-const mongoose = require('mongoose')
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
-const connection = mongoose.connect(process.env.NODE_ENV === 'production'
-? process.env.DATABASE_URL 
-: 'mongodb://localhost:27017/all-inclusive', {
-  useNewUrlParser: true,
-  useFindAndModify: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true
-})
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(process.env.URI, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+    useUnifiedTopology: true,
+  }
+});
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
 
-mongoose.set('debug', true)
-
-module.exports = connection
+module.exports = client
